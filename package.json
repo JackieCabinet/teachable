@@ -1,0 +1,25 @@
+{
+  "name": "teachable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JackieCabinet/teachable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cors": "^2.8.1",
+    "express": "^4.14.1"
+  },
+  "bugs": {
+    "url": "https://github.com/JackieCabinet/teachable/issues"
+  },
+  "homepage": "https://github.com/JackieCabinet/teachable#readme"
+}
+
