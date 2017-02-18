@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 
 app.set('port', (process.env.PORT || 5000));
-app.use(express.static(path.join(__dirname, 'client')))
+app.use(express.static(path.join(__dirname, '../client')))
 
 
 app.listen(app.get('port'), function() {
