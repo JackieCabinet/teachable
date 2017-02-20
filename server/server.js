@@ -20,4 +20,5 @@ app.listen(app.get('port'), function() {
 
 
 //app.use('/api', routes);
-app.post('/api/teachable-hook', hooks.teachable);
+app.get('/api/teachable-hook', hooks.teachGet);
+app.post('/api/teachable-hook', hooks.teachPost);
