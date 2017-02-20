@@ -6,6 +6,7 @@ module.exports = {
 	},
 	teachPost: function(req,res){
 		console.log('in post');
+		console.log(req.body);
 		res.send(req.body);
 	}
 }
