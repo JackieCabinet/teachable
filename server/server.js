@@ -3,7 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
-const hooks = require('./api/hooks')
+const hooks = require('./api/hooks');
+const db = require('./api/db.config');
 //const routes = require('./api/routes.main');
 
 app.options('*', cors());
