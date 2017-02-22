@@ -13,7 +13,7 @@ const LectureCompletion = db.define('completion', {
 
 
 LectureCompletion.sync().then(() => {
-  console.log('Review table successfully created.')
+  console.log('LectureCompletion table successfully created.')
 })
 
 module.exports = LectureCompletion
