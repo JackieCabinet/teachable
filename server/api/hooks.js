@@ -9,15 +9,15 @@ module.exports = {
 	teachPost: function(req,res){
 		console.log('in post');
 		console.log(req.body);
-		if(req.body.type === "lectureprogress.created"){
+		if(req.body.type === "LectureProgress.created"){
 			LectureCompletion.create({
-				User_Name: req.body.data.object.user.name,
-				User_Email: req.body.data.object.user.email,
-				User_id: req.body.data.object.user.id,
-				Lecture_ID: req.body.data.object.lecture.id,
+				User_Name: req.body.object.user.name,
+				User_Email: req.body.object.user.email,
+				User_id: req.body.object.user.id,
+				Lecture_ID: req.body.object.lecture.id,
 				Lecture_Completion_Date: req.body.created,
-				Sign_In_Count: req.body.data.object.user.sign_in_count,
-				Last_Sign_In: req.body.data.object.user.last_sign_in_at
+				Sign_In_Count: req.body.object.user.sign_in_count,
+				Last_Sign_In: req.body.object.user.last_sign_in_at
 			})
 		}
 		res.send(req.body);
