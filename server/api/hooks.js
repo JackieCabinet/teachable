@@ -1,4 +1,4 @@
-// const LectureCompletion = require('./model.js')
+const LectureCompletion = require('./model.js')
 
 
 module.exports = {
