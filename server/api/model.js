@@ -2,13 +2,13 @@ const sequelize = require('sequelize');
 const db = require('./db.config.js');
 
 const LectureCompletion = db.define('completion', {
-	User_Name: Sequelize.STRING,
-	User_Email: Sequelize.STRING,
-	User_id: Sequelize.INTEGER,
-	Lecture_ID: Sequelize.INTEGER,
-	Lecture_Completion_Date: Sequelize.DATE,
-	Sign_In_Count: Sequelize.INTEGER,
-	Last_Sign_In: Sequelize.DATE
+	User_Name: sequelize.STRING,
+	User_Email: sequelize.STRING,
+	User_id: sequelize.INTEGER,
+	Lecture_ID: sequelize.INTEGER,
+	Lecture_Completion_Date: sequelize.DATE,
+	Sign_In_Count: sequelize.INTEGER,
+	Last_Sign_In: sequelize.DATE
 })
 
 
