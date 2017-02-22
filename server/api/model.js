@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const sequelize = require('sequelize');
 const db = require('./db.config.js');
 
 const LectureCompletion = db.define('completion', {

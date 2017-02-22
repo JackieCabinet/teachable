@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const hooks = require('./api/hooks');
-const Sequelize = require('sequelize');
+const sequelize = require('sequelize');
 const db = require('./api/db.config');
 //const routes = require('./api/routes.main');
 
