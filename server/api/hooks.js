@@ -1,7 +1,3 @@
-<<<<<<< f0b6d3b1f8578bbb410279b891473850fc55c16e
-const sequelize = require('sequelize');
-=======
->>>>>>> Add nodemon, sequilize and pg modules
 const LectureCompletion = require('./model.js')
 
 
