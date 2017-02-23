@@ -17,5 +17,5 @@ DBConnection
       console.log('DB connection ERROR: ', err)
     })
 
-module.exports = DBConnection
+module.exports = DBConnection;
 

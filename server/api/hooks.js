@@ -3,8 +3,9 @@ const LectureCompletion = require('./model.js')
 
 module.exports = {
 	teachGet: function(req,res){
+		console.log('inside GET');
 		var greet = {greet : "Bonjour Au Monde"};
-		res.json(greet);
+		res.json("greet");
 	},
 	teachPost: function(req,res){
 		console.log('in post');
@@ -23,3 +24,5 @@ module.exports = {
 		res.send(req.body);
 	}
 }
+
+

@@ -9,8 +9,8 @@
   <button>Download JSON</button>
   <script>
     $(document).ready( function() {
-      $("button" ).click(function() {
-        $.get("/test", function(data, status){
+      $("button" ).on('click', function() {
+        $.get("/api/teachable-hook", function(data, status){
             console.log("Data: " + data + "\nStatus: " + status);
         });
       });

@@ -16,10 +16,6 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(path.join(__dirname, '../client')));
 
 //app.use('/api', routes);
-app.get('/test', (req, res) => {
-  console.log("inside /test route");
-  res.status(200).send("from server");
-});
 app.get('/api/teachable-hook', hooks.teachGet);
 app.post('/api/teachable-hook', hooks.teachPost);
 
