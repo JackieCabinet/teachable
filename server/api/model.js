@@ -16,4 +16,4 @@ LectureCompletion.sync().then(() => {
   console.log('Review table successfully created.')
 })
 
-module.exports = LectureCompletion;
+module.exports = LectureCompletion
