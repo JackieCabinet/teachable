@@ -2,8 +2,19 @@
 <html>
 <head>
 	<title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 </head>
 <body>
-	Hello World!
+  Hello World!
+  <button>Download JSON</button>
+  <script>
+    $(document).ready( function() {
+      $("button" ).click(function() {
+        $.get("/test", function(data, status){
+            console.log("Data: " + data + "\nStatus: " + status);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
