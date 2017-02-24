@@ -6,36 +6,44 @@ var fs = require('fs');
 module.exports = {
 	teachGet: function(req,res){
 		console.log('inside get');
-		var fields = ['User Name', 'User Email', 'User ID', 'Lecture ID', 'Lecture Completion Date', 'Sign In Count', 'Last Sign In'];
-		var sampleData = [
-		  {
-		    "User Name": "John Doe",
-		    "User Email": "johnbto@icloud.csom",
-		    "User ID": 3535791,
-		    "Lecture ID": 12374767,
-		    "Lecture Completion Date": "2017-02-24T19:10:30.000Z",
-		    "Sign In Count": 15,
-		    "Last Sign In": "2017-02-24T13:16:30.000Z"
-		  }
-		];
-		var csv = json2csv({ data: sampleData, fields: fields });
-		fs.writeFile('file.csv', csv, function(err) {
-		  if (err) throw err;
-		  console.log('file saved');
-			res.download('./file.csv');
-		});
+		var dataArray;
+		var usefulData;
+		var fields;
 
-		// LectureCompletion.findAll()
-		// 	.then((data) => {
-		// 		console.log(`data = ${data}`);
-		// 		data.forEach((row) => {
-		// 			console.log(`row.object = ${row.object}`);
-		// 		});
-		// 		res.json({"data": data});
-		// 	})
-		// 	.catch((err) => {
-		// 		throw err;
-		// 	});
+		LectureCompletion.findAll()
+			.then((data) => {
+				// console.log(`data = ${data}`);
+				// dataArray = data.data.slice();
+				usefulData = data.map(function(value, index, array) {
+					  return {
+					    "User Name": value.User_Name,
+					    "User Email": value.User_Email,
+					    "User ID": value.User_id,
+					    "Lecture ID": value.Lecture_ID,
+					    "Lecture Completion Date": value.Lecture_Completion_Date,
+					    "Sign In Count": value.Sign_In_Count,
+					    "Last Sign In": value.Last_Sign_In
+					  }
+				});
+				fields = ['User Name', 'User Email', 'User ID', 'Lecture ID', 'Lecture Completion Date', 'Sign In Count', 'Last Sign In'];
+
+				// data.forEach((row) => {
+				// 	console.log(`row.object = ${row.object}`);
+				// });
+				// res.json({"data": data});
+
+
+				var csv = json2csv({ data: usefulData, fields: fields });
+				fs.writeFile('file.csv', csv, function(err) {
+				  if (err) throw err;
+				  console.log('file saved');
+					res.download('./file.csv');
+				});
+				// res.send(usefulData);
+			})
+			.catch((err) => {
+				throw err;
+			});
 	},
 	teachPost: function(req,res){
 		console.log('in post');
