@@ -4,6 +4,7 @@ const LectureCompletion = require('./model.js')
 module.exports = {
 	teachGet: function(req,res){
 		console.log('inside get');
+		res.send('hi');
 		// LectureCompletion.findAll()
 		// 	.then((data) => {
 		// 		console.log(`data = ${data}`);
