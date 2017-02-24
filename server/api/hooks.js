@@ -1,20 +1,44 @@
 const LectureCompletion = require('./model.js')
+var json2csv = require('json2csv');
+var fs = require('fs');
 
 
 module.exports = {
 	teachGet: function(req,res){
 		console.log('inside get');
-		LectureCompletion.findAll()
-			.then((data) => {
-				console.log(`data = ${data}`);
-				data.forEach((row) => {
-					console.log(`row.object = ${row.object}`);
-				});
-				res.json({"data": data});
-			})
-			.catch((err) => {
-				throw err;
-			});
+		var fields = ['car', 'price', 'color'];
+		var myCars = [
+		  {
+		    "car": "Audi",
+		    "price": 40000,
+		    "color": "blue"
+		  }, {
+		    "car": "BMW",
+		    "price": 35000,
+		    "color": "black"
+		  }, {
+		    "car": "Porsche",
+		    "price": 60000,
+		    "color": "green"
+		  }
+		];
+		var csv = json2csv({ data: myCars, fields: fields });
+		 
+		fs.writeFile('file.csv', csv, function(err) {
+		  if (err) throw err;
+		  console.log('file saved');
+		});
+		// LectureCompletion.findAll()
+		// 	.then((data) => {
+		// 		console.log(`data = ${data}`);
+		// 		data.forEach((row) => {
+		// 			console.log(`row.object = ${row.object}`);
+		// 		});
+		// 		res.json({"data": data});
+		// 	})
+		// 	.catch((err) => {
+		// 		throw err;
+		// 	});
 	},
 	teachPost: function(req,res){
 		console.log('in post');
