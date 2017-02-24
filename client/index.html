@@ -9,9 +9,12 @@
   <button>Download JSON</button>
   <script>
     $(document).ready( function() {
+      var largeArray;
       $("button" ).on('click', function() {
         $.get("/api/teachable-hook", function(data, status){
-            console.log("Data: " + data + "\nStatus: " + status);
+          largeArray = data.data
+          console.log("Data: " + data.data + "\nStatus: " + status);
+          largeArray.forEach(row => console.log(`row = ${row}`));
         });
       });
     });
