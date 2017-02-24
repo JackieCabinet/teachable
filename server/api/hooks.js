@@ -1,20 +1,18 @@
 const LectureCompletion = require('./model.js')
-var json2csv = require('json2csv');
-var fs = require('fs');
-
+const json2csv = require('json2csv');
+const fs = require('fs');
 
 module.exports = {
 	teachGet: function(req,res){
-		console.log('inside get');
-		var dataArray;
-		var usefulData;
-		var fields;
+		let dataArray;
+		let usefulData;
+		let fields;
 
 		LectureCompletion.findAll()
 			.then((data) => {
-				// console.log(`data = ${data}`);
-				// dataArray = data.data.slice();
-				usefulData = data.map(function(value, index, array) {
+				let csv;
+				fields = ['User Name', 'User Email', 'User ID', 'Lecture ID', 'Lecture Completion Date', 'Sign In Count', 'Last Sign In'];
+				usefulData = data.map((value) => {
 					  return {
 					    "User Name": value.User_Name,
 					    "User Email": value.User_Email,
@@ -25,21 +23,11 @@ module.exports = {
 					    "Last Sign In": value.Last_Sign_In
 					  }
 				});
-				fields = ['User Name', 'User Email', 'User ID', 'Lecture ID', 'Lecture Completion Date', 'Sign In Count', 'Last Sign In'];
-
-				// data.forEach((row) => {
-				// 	console.log(`row.object = ${row.object}`);
-				// });
-				// res.json({"data": data});
-
-
-				var csv = json2csv({ data: usefulData, fields: fields });
-				fs.writeFile('file.csv', csv, function(err) {
+				csv = json2csv({ data: usefulData, fields: fields });
+				fs.writeFile('file.csv', csv, (err) => {
 				  if (err) throw err;
-				  console.log('file saved');
 					res.download('./file.csv');
 				});
-				// res.send(usefulData);
 			})
 			.catch((err) => {
 				throw err;
@@ -62,9 +50,3 @@ module.exports = {
 		res.send(req.body);
 	}
 }
-
-
-
-		// console.log('inside GET');
-		// var greet = {greet : "Bonjour Au Monde"};
-		// res.json("greet");
