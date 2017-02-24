@@ -4,17 +4,17 @@ const LectureCompletion = require('./model.js')
 module.exports = {
 	teachGet: function(req,res){
 		console.log('inside get');
-		LectureCompletion.findAll()
-			.then((data) => {
-				console.log(`data = ${data}`);
-				data.forEach((row) => {
-					console.log(`row.object = ${row.object}`);
-				});
-				res.json({"data": data});
-			})
-			.catch((err) => {
-				throw err;
-			});
+		// LectureCompletion.findAll()
+		// 	.then((data) => {
+		// 		console.log(`data = ${data}`);
+		// 		data.forEach((row) => {
+		// 			console.log(`row.object = ${row.object}`);
+		// 		});
+		// 		res.json({"data": data});
+		// 	})
+		// 	.catch((err) => {
+		// 		throw err;
+		// 	});
 	},
 	teachPost: function(req,res){
 		console.log('in post');
