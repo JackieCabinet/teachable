@@ -4,7 +4,6 @@ const fs = require('fs');
 
 module.exports = {
 	teachGet: function(req,res){
-<<<<<<< HEAD
 		let dataArray;
 		let usefulData;
 		let fields;
