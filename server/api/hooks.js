@@ -3,8 +3,18 @@ const LectureCompletion = require('./model.js')
 
 module.exports = {
 	teachGet: function(req,res){
-		var greet = {greet : "Bonjour Au Monde"};
-		res.json(greet);
+		console.log('inside get');
+		LectureCompletion.findAll()
+			.then((data) => {
+				console.log(`data = ${data}`);
+				data.forEach((row) => {
+					console.log(`row.object = ${row.object}`);
+				});
+				res.json({"data": data});
+			})
+			.catch((err) => {
+				throw err;
+			});
 	},
 	teachPost: function(req,res){
 		console.log('in post');
@@ -23,3 +33,9 @@ module.exports = {
 		res.send(req.body);
 	}
 }
+
+
+
+		// console.log('inside GET');
+		// var greet = {greet : "Bonjour Au Monde"};
+		// res.json("greet");
