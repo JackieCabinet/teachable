@@ -1,9 +1,9 @@
 const sequelize = require('sequelize')
 const creds = require('./credentials.js')
 
-// Please create a credential.json file with your username and password for your cloud DB.
-// Refer to sampleCredentials.json
-// const creds = require('./credentials')
+// Please create a credentials.js file with your username and password for your cloud DB.
+// Refer to sampleCredentials.js
+
 
 // Database connection
 
