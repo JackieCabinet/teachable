@@ -6,8 +6,8 @@ const creds = require('./credentials.js')
 // const creds = require('./credentials')
 
 // Database connection
-// const DBConnection = new sequelize('postgres://dtsjjtzz:LQWdLNzmw7RTddMuSLQQkTQ4IqFr77_G@babar.elephantsql.com:5432/dtsjjtzz')
-const DBConnection = new sequelize(creds.db)
+//const DBConnection = new sequelize('postgres://dtsjjtzz:LQWdLNzmw7RTddMuSLQQkTQ4IqFr77_G@babar.elephantsql.com:5432/dtsjjtzz')
+const DBConnection = new sequelize("postgres://dtsjjtzz:q00usl2X1H2ICB_I7vn5tTITABU4a-ip@babar.elephantsql.com:5432/dtsjjtzz")
 
 // Connection testing
 DBConnection
