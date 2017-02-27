@@ -1,12 +1,20 @@
 const LectureCompletion = require('./model.js')
 const json2csv = require('json2csv');
 const fs = require('fs');
+const credentials = require('./credentials'); 
+const path = require('path');
+const dirname = path.dirname;
+
 
 module.exports = {
 	test: function(req,res){
 		console.log("in server");
 		console.log(`req.body.username = ${req.body.username}`);
-		res.send("hello")
+		let username = req.body.username;
+		let password = req.body.password;
+		if (username === credentials.username && password === credentials.password ) {
+			res.sendFile(__dirname + '/secured.html');
+		}
 	},
 	teachGet: function(req,res){
 		let dataArray;
