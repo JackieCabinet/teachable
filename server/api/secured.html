@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+</head>
+<body>
+  Hello World!
+  <form method="get" action="/api/teachable-hook">
+  <button type="submit">Download CSV!</button>
+  </form>
+<!--   <button>Download JSON</button>
+  <script>
+    $(document).ready( function() {
+      var largeArray;
+      $("button" ).on('click', function() {
+        $.get("/api/teachable-hook", function(data, status){
+          largeArray = data.data
+          console.log("Data: " + data.data + "\nStatus: " + status);
+          largeArray.forEach(row => console.log(`row = ${row}`));
+        });
+      });
+    });
+  </script> -->
+</body>
+</html>
