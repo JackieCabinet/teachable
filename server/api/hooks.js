@@ -3,6 +3,11 @@ const json2csv = require('json2csv');
 const fs = require('fs');
 
 module.exports = {
+	test: function(req,res){
+		console.log("in server");
+		console.log(`req.body.username = ${req.body.username}`);
+		res.send("hello")
+	},
 	teachGet: function(req,res){
 		let dataArray;
 		let usefulData;
