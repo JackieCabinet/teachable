@@ -61,5 +61,28 @@ module.exports = {
 			})
 		}
 		res.send(req.body);
+	},
+	teachDelete: function(req,res){
+		console.log('in delete');
+		LectureCompletion.findAll()
+		.then((data) => {
+			//JSON.parse(data);
+			var yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000); //maybe change this to be week prior?
+			for(var i = 0; i < data.length; i++){
+				if(data[i].dataValues.createdAt < yesterday){
+					var dataID = data[i].dataValues.id;
+					LectureCompletion.destroy({
+						where: {
+							id: dataID
+						},
+						truncate: true
+					})
+					console.log('deleted')
+				}
+			}
+		})
+		res.send('deleted')
 	}
 }
+
+//2017-02-21 03:35:34 +0000

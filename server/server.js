@@ -20,6 +20,7 @@ app.post('/api/login', hooks.test);
 
 app.get('/api/teachable-hook', hooks.teachGet);
 app.post('/api/teachable-hook', hooks.teachPost);
+app.get('/api/delete', hooks.teachDelete);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
