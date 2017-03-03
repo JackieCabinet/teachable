@@ -77,7 +77,6 @@ module.exports = {
 						},
 						truncate: true
 					})
-					console.log('deleted')
 				}
 			}
 		})
