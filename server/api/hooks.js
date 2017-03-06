@@ -1,7 +1,6 @@
 const LectureCompletion = require('./model.js')
 const json2csv = require('json2csv');
 const fs = require('fs');
-const credentials = require('./credentials'); 
 const path = require('path');
 const dirname = path.dirname;
 
