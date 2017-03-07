@@ -1,5 +1,5 @@
 const sequelize = require('sequelize');
-const db = require('./db.config.js');
+const db = require('../db.config.js');
 
 const LectureCompletion = db.define('completion', {
 	User_Name: sequelize.STRING,

@@ -1,19 +1,45 @@
-const LectureCompletion = require('./model.js')
+const LectureCompletion = require('./models/completions');
+const User = require('./models/users')
 const json2csv = require('json2csv');
 const fs = require('fs');
 const path = require('path');
 const dirname = path.dirname;
+const bcrypt = require('bcrypt')
 
 
 module.exports = {
-	test: function(req,res){
+	userLogin: function(req,res){
 		console.log("in server");
 		console.log(`req.body.username = ${req.body.username}`);
 		let username = req.body.username;
 		let password = req.body.password;
-		if (username === credentials.username && password === credentials.password ) {
-			res.sendFile(__dirname + '/secured.html');
-		}
+		var hashedPass = bcrypt.hash(password, 10, function(err, hash){
+			console.log('hashed', hash)
+			return hash;
+		})
+		User.findOne({where:{Username:username}})
+		.then(function(user){
+			console.log(hashedPass, 'hashedpass');
+			bcrypt.compare(password, user.dataValues.Password, function(err, result) {
+    			if(result===true){
+    				console.log('should download')
+					res.sendFile(__dirname + '/secured.html');
+    			} else {console.log('did not work');}
+			});
+		})
+		
+	},
+	userPost: function(req,res){
+		console.log('in post');
+		console.log(req.body);
+		var tempPass = req.body.password;
+		var hashed = bcrypt.hash(tempPass, 10, function(err, hash){
+			User.create({
+				Username: req.body.username,
+				Password: hash
+			})
+		})
+		res.send("posted");
 	},
 	teachGet: function(req,res){
 		let dataArray;
