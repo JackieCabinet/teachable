@@ -45,9 +45,11 @@ module.exports = {
 		let dataArray;
 		let usefulData;
 		let fields;
+		console.log('in here')
 
 		LectureCompletion.findAll()
 			.then((data) => {
+				console.log('in heres')
 				let csv;
 				fields = ['User Name', 'User Email', 'User ID', 'Lecture ID', 'Lecture Completion Date', 'Sign In Count', 'Last Sign In'];
 				usefulData = data.map((value) => {
@@ -93,7 +95,7 @@ module.exports = {
 		.then((data) => {
 			//JSON.parse(data);
 			var yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000); //maybe change this to be week prior?
-			for(var i = 0; i < data.length; i++){
+			for(var i = 0; i < 10; i++){
 				if(data[i].dataValues.createdAt < yesterday){
 					var dataID = data[i].dataValues.id;
 					LectureCompletion.destroy({
